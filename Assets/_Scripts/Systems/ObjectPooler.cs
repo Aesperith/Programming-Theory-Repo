@@ -1,17 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public abstract class ObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler SharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
-
-    private void Awake()
-    {
-        SharedInstance = this;
-    }
 
     // Start is called once before the first execution of Update after
     // the MonoBehaviour is created

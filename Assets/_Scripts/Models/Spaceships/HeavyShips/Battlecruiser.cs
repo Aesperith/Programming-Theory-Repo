@@ -13,7 +13,8 @@ public class Battlecruiser : HeavyShip
     {
         healthPoint = 100;
         speed = 30;
-        angleVelocity = new(0, 30, 0);
+        angleVelocity = new(0, 15, 0);
+        tiltAngleMax = 20f;
         maxArmor = 3;
         armor = 3;
         maxShield = 3;

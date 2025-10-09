@@ -36,7 +36,8 @@ public class BoundariesManager : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") 
+            || other.gameObject.CompareTag("Enemy"))
         {
             if (other.gameObject.TryGetComponent<Rigidbody>(out var rb))
             {

@@ -12,13 +12,14 @@ public class Destoyer : MediumShip
     {
         healthPoint = 10;
         speed = 10;
-        angleVelocity = new(0, 60, 0);
+        angleVelocity = new(0, 30, 0);
+        tiltAngleMax = 30f;
         maxArmor = 3;
         armor = 3;
         maxShield = 1;
         shield = 1;
         cooldownShield = 3;
-        mass = 100;
+        mass = 150;
         base.Start();
         rb.mass = mass;
     }

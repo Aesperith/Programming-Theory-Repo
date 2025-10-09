@@ -13,7 +13,8 @@ public class Carrier : HeavyShip
     {
         healthPoint = 50;
         speed = 20;
-        angleVelocity = new(0, 30, 0);
+        angleVelocity = new(0, 15, 0);
+        tiltAngleMax = 20f;
         maxArmor = 1;
         armor = 1;
         maxShield = 3;

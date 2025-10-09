@@ -46,6 +46,8 @@ public abstract class Spaceship : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        rb.linearDamping = 1;
+        rb.angularDamping = 1;
     }
 
     /// <summary>
@@ -79,32 +81,64 @@ public abstract class Spaceship : MonoBehaviour
             (verticalInput * speed * transform.forward, ForceMode.Impulse);
     }
 
+    /// <summary>
+    /// Stop the spaceship.
+    /// </summary>
+    public virtual void Stop()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
 
     [SerializeField]
     protected Transform innerRotation;
-    private float tiltAngle = 45.0f;
+    protected float tiltAngleMax;
+    private float tiltAngle = 0f;
 
     /// <summary>
     /// Tilt the Spaceship in the direction of the horizontal movement.
     /// </summary>
     protected virtual void Tilt()
     {
-        float zAngle = 0.0f;
         if (horizontalInput > 0)
         {
-            zAngle = -tiltAngle;
-        }
+            tiltAngle = tiltAngle > 0 ? 0f : tiltAngle;
 
-        if (horizontalInput < 0)
+            if (tiltAngle > -tiltAngleMax)
+            {
+                tiltAngle--;
+            }
+        }
+        else if (horizontalInput < 0)
         {
-            zAngle = tiltAngle;
+            tiltAngle = tiltAngle < 0 ? 0f : tiltAngle;
+
+            if (tiltAngle < tiltAngleMax)
+            {
+                tiltAngle++;
+            }
+        }
+        else
+        {
+            if (tiltAngle > 0)
+            {
+                tiltAngle--;
+            }
+            else if(tiltAngle < 0)
+            {
+                tiltAngle++;
+            }
+            else
+            {
+                tiltAngle = 0f;
+            }
         }
 
         innerRotation.eulerAngles = new Vector3
         (
             innerRotation.eulerAngles.x,
-            innerRotation.eulerAngles.y, 
-            zAngle
+            innerRotation.eulerAngles.y,
+            tiltAngle
         );
     }
 

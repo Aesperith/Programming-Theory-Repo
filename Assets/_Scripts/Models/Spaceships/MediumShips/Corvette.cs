@@ -11,8 +11,9 @@ public class Corvette : MediumShip
     protected override void Start()
     {
         healthPoint = 20;
-        speed = 20;
-        angleVelocity = new(0, 60, 0);
+        speed = 10;
+        angleVelocity = new(0, 30, 0);
+        tiltAngleMax = 30f;
         maxArmor = 1;
         armor = 1;
         maxShield = 3;

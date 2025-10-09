@@ -11,8 +11,9 @@ public class Bomber : SmallShip
     protected override void Start()
     {
         healthPoint = 2;
-        speed = 5;
+        speed = 1.5f;
         angleVelocity = new(0, 60, 0);
+        tiltAngleMax = 45f;
         mass = 10;
         base.Start();
         rb.mass = mass;

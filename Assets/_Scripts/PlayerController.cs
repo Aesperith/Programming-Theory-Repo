@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Spaceship spaceship;
 
+    private GameManager gameManager;
     private InputAction actionMove;
     private InputAction actionShot;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     // the MonoBehaviour is created
     private void Start()
     {
+        gameManager = GameObject.FindFirstObjectByType<GameManager>();
         actionMove = InputSystem.actions.FindAction("Move");
         actionShot = InputSystem.actions.FindAction("Shot");
     }
@@ -20,12 +22,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Shoot();    // ABSTRACTION
+        if (gameManager.isGameActive)
+        {
+            Shoot();    // ABSTRACTION
+        }    
     }
 
     private void FixedUpdate()
-    { 
-        spaceship.Move(actionMove.ReadValue<Vector2>());    // ABSTRACTION
+    {
+        if (gameManager.isGameActive)
+        {
+            spaceship.Move(actionMove.ReadValue<Vector2>());    // ABSTRACTION
+        }
     }
 
     /// <summary>

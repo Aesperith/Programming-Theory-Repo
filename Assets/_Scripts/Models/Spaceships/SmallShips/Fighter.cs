@@ -8,15 +8,15 @@ public class Fighter : SmallShip
     private LaserGun laserGun;
 
 
-    // POLYMORPHISM
-    protected override void Start()
+    private void Start()
     {
         healthPoint = 1;
         speed = 3;
         angleVelocity = new(0, 60, 0);
         tiltAngleMax = 45f;
+        price = 100;
+        scorePoint = 1;
         mass = 10;
-        base.Start();
         rb.mass = mass;
     }
 

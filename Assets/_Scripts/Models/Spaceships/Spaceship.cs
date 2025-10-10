@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Spaceship : MonoBehaviour
 {
@@ -32,18 +33,23 @@ public abstract class Spaceship : MonoBehaviour
         }
     }
 
-    protected int mass;
+    protected int price;
+    protected int scorePoint;
+    public UnityEvent<int> onDestroyed;
 
-    protected Rigidbody rb;
+    protected int mass;
 
     protected float horizontalInput;
     protected float verticalInput;
 
     protected Vector3 angleVelocity;
 
+    protected GameManager gameManager;
+    protected Rigidbody rb;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
+        gameManager = GameObject.FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.linearDamping = 1;
@@ -102,7 +108,10 @@ public abstract class Spaceship : MonoBehaviour
     {
         if (horizontalInput > 0)
         {
-            tiltAngle = tiltAngle > 0 ? 0f : tiltAngle;
+            if (tiltAngle > 0)
+            {
+                tiltAngle--;
+            }
 
             if (tiltAngle > -tiltAngleMax)
             {
@@ -111,7 +120,10 @@ public abstract class Spaceship : MonoBehaviour
         }
         else if (horizontalInput < 0)
         {
-            tiltAngle = tiltAngle < 0 ? 0f : tiltAngle;
+            if (tiltAngle < 0)
+            {
+                tiltAngle++;
+            }
 
             if (tiltAngle < tiltAngleMax)
             {
@@ -142,19 +154,26 @@ public abstract class Spaceship : MonoBehaviour
         );
     }
 
+    /// <summary>
+    /// Shoot with the spaceship's weapon(s).
+    /// </summary>
     public abstract void Shoot();
 
+    /// <summary>
+    /// Check state of death of the spaceship.
+    /// </summary>
     public virtual void CheckDeath()
     {
         if (healthPoint <= 0)
         {
             if (gameObject.CompareTag("Enemy"))
             {
+                onDestroyed.Invoke(scorePoint);
                 Destroy(gameObject);
             }
             else
             {
-                Debug.Log("Game Over!");
+                gameManager.GameOver();
             }
         }
     }

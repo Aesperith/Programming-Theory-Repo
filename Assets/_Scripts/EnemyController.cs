@@ -93,8 +93,6 @@ public class EnemyController : MonoBehaviour
             {
                 input = Vector2.zero;
             }
-
-            Debug.Log("Enemy Input: " + input);
         }
     }
 

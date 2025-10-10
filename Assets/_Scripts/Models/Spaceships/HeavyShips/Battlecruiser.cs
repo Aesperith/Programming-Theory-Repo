@@ -8,20 +8,20 @@ public class Battlecruiser : HeavyShip
     private List<Weapon> weapons;
 
 
-    // POLYMORPHISM
-    protected override void Start()
+    private void Start()
     {
         healthPoint = 100;
         speed = 30;
         angleVelocity = new(0, 15, 0);
         tiltAngleMax = 20f;
+        price = 2000;
+        scorePoint = 200;
         maxArmor = 3;
         armor = 3;
         maxShield = 3;
         shield = 3;
         cooldownShield = 3;
         mass = 2000;
-        base.Start();
         rb.mass = mass;
     }
 

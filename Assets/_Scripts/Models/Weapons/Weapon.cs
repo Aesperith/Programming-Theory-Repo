@@ -34,5 +34,8 @@ public abstract class Weapon : MonoBehaviour
 
     protected float cooldownUntilNextShot;
 
+    /// <summary>
+    /// Shoot with the weapon.
+    /// </summary>
     public abstract void Shoot();
 }

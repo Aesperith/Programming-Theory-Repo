@@ -7,20 +7,20 @@ public class Destoyer : MediumShip
     private MissileLauncher[] missileLaunchers = new MissileLauncher[3];
 
 
-    // POLYMORPHISM
-    protected override void Start()
+    private void Start()
     {
         healthPoint = 10;
         speed = 10;
         angleVelocity = new(0, 30, 0);
         tiltAngleMax = 30f;
+        price = 750;
+        scorePoint = 50;
         maxArmor = 3;
         armor = 3;
         maxShield = 1;
         shield = 1;
         cooldownShield = 3;
         mass = 150;
-        base.Start();
         rb.mass = mass;
     }
 

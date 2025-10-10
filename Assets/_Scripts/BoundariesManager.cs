@@ -9,14 +9,14 @@ public class BoundariesManager : MonoBehaviour
 
     public Vector3 Center
     {
-        get { return center; }
+        get { return sphereCollider.center; }
     }
 
     private float radius;
 
     public float Radius
     {
-        get { return radius; }
+        get { return sphereCollider.radius; }
     }
 
 
@@ -25,8 +25,6 @@ public class BoundariesManager : MonoBehaviour
     private void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
-        center = sphereCollider.center;
-        radius = sphereCollider.radius;
     }
 
     private void OnTriggerExit(Collider other)

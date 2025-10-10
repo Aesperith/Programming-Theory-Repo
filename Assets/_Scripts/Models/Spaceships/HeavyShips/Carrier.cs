@@ -8,20 +8,20 @@ public class Carrier : HeavyShip
     private List<LaserGun> laserGuns;
 
 
-    // POLYMORPHISM
-    protected override void Start()
+    private void Start()
     {
         healthPoint = 50;
         speed = 20;
         angleVelocity = new(0, 15, 0);
         tiltAngleMax = 20f;
+        price = 1000;
+        scorePoint = 100;
         maxArmor = 1;
         armor = 1;
         maxShield = 3;
         shield = 3;
         cooldownShield = 3;
         mass = 1500;
-        base.Start();
         rb.mass = mass;
     }
 

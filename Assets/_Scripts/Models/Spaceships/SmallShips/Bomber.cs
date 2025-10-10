@@ -7,15 +7,15 @@ public class Bomber : SmallShip
     private MissileLauncher missileLauncher;
 
 
-    // POLYMORPHISM
-    protected override void Start()
+    private void Start()
     {
         healthPoint = 2;
         speed = 1.5f;
         angleVelocity = new(0, 60, 0);
         tiltAngleMax = 45f;
+        price = 125;
+        scorePoint = 5;
         mass = 10;
-        base.Start();
         rb.mass = mass;
     }
 

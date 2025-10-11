@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float delay = 0.5f;
 
+    private UIMiniMap miniMap;
+    private UIMiniMap.EnemyDataInMiniMap dataInMiniMap;
+
     private GameObject target;
 
     private SphereCollider detection;
@@ -30,11 +33,14 @@ public class EnemyController : MonoBehaviour
     {
         detection = GetComponent<SphereCollider>();
         radiusDetection= detection.radius;
+        
+        miniMap = GameObject.FindFirstObjectByType<UIMiniMap>();
+        dataInMiniMap = miniMap.RegisterToMiniMap(spaceship.transform);
     }
 
     private void FixedUpdate()
     {
-        spaceship.Move(input);
+        spaceship.Move(input);  // ABSTRACTION
     }
 
     private void OnTriggerEnter(Collider other)
@@ -142,5 +148,10 @@ public class EnemyController : MonoBehaviour
         {
             return 0f;
         }
+    }
+
+    private void OnDestroy()
+    {
+        miniMap.UnregisterToMiniMap(dataInMiniMap);
     }
 }

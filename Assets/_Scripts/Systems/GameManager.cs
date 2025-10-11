@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         pauseSystem = GameObject.FindFirstObjectByType<PauseSystem>();
         isGameActive = true;
-        SpawnRandomEnemyWave(waveNumber);
+        SpawnRandomEnemyWave(waveNumber);   // ABSTRACTION
     }
 
     // Update is called once per frame
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
                 waveNumber++;
             }
 
-            SpawnRandomEnemyWave(waveNumber);
+            SpawnRandomEnemyWave(waveNumber);   // ABSTRACTION
         }
     }
 
@@ -105,40 +105,40 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < enemiesToSpawn; i++)
             {
-                InstantiateRandomSmallShip();
+                InstantiateRandomSmallShip();   // ABSTRACTION
             }
         }
         else if(enemiesToSpawn <= smallShipMax + mediumShipMax)
         {
             for (int i = 0; i < smallShipMax; i++)
             {
-                InstantiateRandomSmallShip();
+                InstantiateRandomSmallShip();   // ABSTRACTION
             }
 
             int mediumShipToSpawn = enemiesToSpawn - smallShipMax;
 
             for (int i = 0; i < mediumShipToSpawn; i++)
             {
-                InstantiateRandomMediumShip();
+                InstantiateRandomMediumShip();  // ABSTRACTION
             }
         }
         else
         {
             for (int i = 0; i < smallShipMax; i++)
             {
-                InstantiateRandomSmallShip();
+                InstantiateRandomSmallShip();   // ABSTRACTION
             }
 
             for (int i = 0; i < mediumShipMax; i++)
             {
-                InstantiateRandomMediumShip();
+                InstantiateRandomMediumShip();  // ABSTRACTION
             }
 
             int heavyShipToSpawn = enemiesToSpawn - smallShipMax - mediumShipMax;
 
             for (int i = 0; i < heavyShipToSpawn; i++)
             {
-                InstantiateRandomHeavyShip();
+                InstantiateRandomHeavyShip();   // ABSTRACTION
             }
         }
     }

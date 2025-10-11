@@ -5,14 +5,10 @@ public class BoundariesManager : MonoBehaviour
 {
     private SphereCollider sphereCollider;
 
-    private Vector3 center;
-
     public Vector3 Center
     {
         get { return sphereCollider.center; }
     }
-
-    private float radius;
 
     public float Radius
     {
@@ -20,11 +16,9 @@ public class BoundariesManager : MonoBehaviour
     }
 
 
-    // Start is called once before the first execution of Update after
-    // the MonoBehaviour is created
-    private void Start()
+    private void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = GetComponent<SphereCollider> ();
     }
 
     private void OnTriggerExit(Collider other)
@@ -53,9 +47,9 @@ public class BoundariesManager : MonoBehaviour
     /// <param name="gameObject">The player.</param>
     private void KeepInSphereBounds(GameObject gameObject)
     {
-        Vector3 pos = gameObject.transform.position;
-        float angle = Mathf.Atan2(pos.z, pos.x);
-        float distance = Mathf.Clamp(pos.magnitude, 0.0f, radius);
+        Vector3 pos = gameObject.transform.position;       
+        float angle = Mathf.Atan2(pos.z, pos.x);     
+        float distance = Mathf.Clamp(pos.magnitude, 0.0f, Radius);       
         pos.x = Mathf.Cos(angle) * distance;
         pos.z = Mathf.Sin(angle) * distance;
         gameObject.transform.position = pos;

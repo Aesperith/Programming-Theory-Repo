@@ -189,6 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb35b7474b430344586c42f52b12bc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Corvette
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   innerRotation: {fileID: 3127253912881458860}
   laserGuns:
   - {fileID: 4329410713523097326}
@@ -261,6 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   spaceship: {fileID: 8799331932588584902}
+  halfAngleView: 15
+  halfAngleShoot: 30
+  delay: 0.5
 --- !u!1001 &1800503413358204607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -345,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -496,6 +510,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalPosition.x

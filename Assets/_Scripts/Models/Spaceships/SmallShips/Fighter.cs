@@ -25,4 +25,10 @@ public class Fighter : SmallShip
     {
         laserGun.Shoot();
     }
+
+    // POLYMORPHISM
+    public override void Activate1()
+    {
+        //No special power
+    }
 }

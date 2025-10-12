@@ -11,7 +11,7 @@ public class Battlecruiser : HeavyShip
     private void Start()
     {
         healthPoint = 100;
-        speed = 30;
+        speed = 200;
         angleVelocity = new(0, 15, 0);
         tiltAngleMax = 20f;
         price = 2000;
@@ -32,5 +32,11 @@ public class Battlecruiser : HeavyShip
         {
             weapon.Shoot();
         }
+    }
+
+    // POLYMORPHISM
+    public override void Activate1()
+    {
+        specialPower.Activate();
     }
 }

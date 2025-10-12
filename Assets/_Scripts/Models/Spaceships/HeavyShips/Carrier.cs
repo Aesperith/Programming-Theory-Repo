@@ -11,7 +11,7 @@ public class Carrier : HeavyShip
     private void Start()
     {
         healthPoint = 50;
-        speed = 20;
+        speed = 100;
         angleVelocity = new(0, 15, 0);
         tiltAngleMax = 20f;
         price = 1000;
@@ -32,5 +32,11 @@ public class Carrier : HeavyShip
         {
             laserGun.Shoot();
         }
+    }
+
+    // POLYMORPHISM
+    public override void Activate1()
+    {
+        specialPower.Activate();
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
 
-// INHERITANCE
-public class Laser : Projectile
+public class Hyperbeam : Projectile
 {
     private void Start()
     {

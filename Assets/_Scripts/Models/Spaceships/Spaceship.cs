@@ -59,10 +59,10 @@ public abstract class Spaceship : MonoBehaviour
     /// <summary>
     /// Move the Spaceship.
     /// </summary>
-    public virtual void Move(Vector2 playerInput)
+    public virtual void Move(Vector2 input)
     {
-        horizontalInput = playerInput.x;
-        verticalInput = playerInput.y;
+        horizontalInput = input.x;
+        verticalInput = input.y;
         MoveInXAxis();
         MoveInYAxis();
         Tilt();
@@ -160,6 +160,11 @@ public abstract class Spaceship : MonoBehaviour
     public abstract void Shoot();
 
     /// <summary>
+    /// Activate special power 1.
+    /// </summary>
+    public abstract void Activate1();
+
+    /// <summary>
     /// Check state of death of the spaceship.
     /// </summary>
     public virtual void CheckDeath()
@@ -185,13 +190,16 @@ public abstract class Spaceship : MonoBehaviour
             if (other.gameObject.TryGetComponent<Projectile>
                 (out var projectile))
             {
-                Debug.Log(gameObject.name + ": Take " + projectile.Damage + " damages");
-                healthPoint -= projectile.Damage;
-                Debug.Log(gameObject.name + ": HP: " + healthPoint);
-                
-                other.gameObject.SetActive(false);
+                if (!this.CompareTag(projectile.source))
+                {
+                    Debug.Log(gameObject.name + ": Take " + projectile.Damage + " damages");
+                    healthPoint -= projectile.Damage;
+                    Debug.Log(gameObject.name + ": HP: " + healthPoint);
 
-                CheckDeath();
+                    other.gameObject.SetActive(false);
+
+                    CheckDeath();
+                }
             }
         }
     }

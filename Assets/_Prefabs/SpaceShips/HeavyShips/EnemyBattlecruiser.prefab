@@ -235,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7fa827f8ac4974fa979a814a7fce9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Battlecruiser
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   innerRotation: {fileID: 7993255154240971998}
   specialPower: {fileID: 6275026309563352449}
   weapons:
@@ -291,6 +294,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -377,6 +384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -461,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -547,6 +562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MissileLauncher 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -631,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -717,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -801,6 +828,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -965,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -1048,7 +1083,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4409787595903836718, guid: 7710777bf59c4e24da7daad003a3f36e, type: 3}
       propertyPath: m_Name
-      value: Hyperbeam
+      value: ShootHyperbeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409787595903836718, guid: 7710777bf59c4e24da7daad003a3f36e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8169649345552921121, guid: 7710777bf59c4e24da7daad003a3f36e, type: 3}
       propertyPath: m_LocalScale.x
@@ -1072,7 +1111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8169649345552921121, guid: 7710777bf59c4e24da7daad003a3f36e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8169649345552921121, guid: 7710777bf59c4e24da7daad003a3f36e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1138,6 +1177,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1223,6 +1266,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x

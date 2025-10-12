@@ -227,6 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3669639fdab55b41a3217d0c592ad39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Carrier
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   innerRotation: {fileID: 1580043376712938421}
   specialPower: {fileID: 5287013772967021263}
   laserGuns:
@@ -246,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -332,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -417,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SummonSmallShips
       objectReference: {fileID: 0}
+    - target: {fileID: 1884789655693848253, guid: b5c112306cc11314eaa177aade0445b0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7495366378758927047, guid: b5c112306cc11314eaa177aade0445b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -489,6 +504,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -653,6 +672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserGun 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -737,6 +760,10 @@ PrefabInstance:
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_Name
       value: LaserGun 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x

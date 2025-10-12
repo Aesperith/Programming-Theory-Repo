@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     private InputAction actionMove;
     private InputAction actionShot;
+    private InputAction actionSpecial1;
 
     // Start is called once before the first execution of Update after
     // the MonoBehaviour is created
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.FindFirstObjectByType<GameManager>();
         actionMove = InputSystem.actions.FindAction("Move");
         actionShot = InputSystem.actions.FindAction("Shot");
+        actionSpecial1 = InputSystem.actions.FindAction("Special1");
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         if (gameManager.isGameActive)
         {
-            Shoot();    // ABSTRACTION
+            Shoot();        // ABSTRACTION
+            Activate1();    // ABSTRACTION
         }    
     }
 
@@ -44,6 +47,17 @@ public class PlayerController : MonoBehaviour
         if (actionShot.IsPressed())
         {
             spaceship.Shoot();
+        }
+    }
+
+    /// <summary>
+    /// Player active special power 1 (if there are any).
+    /// </summary>
+    private void Activate1()
+    {
+        if (actionSpecial1.WasPressedThisFrame())
+        {
+            spaceship.Activate1();
         }
     }
 }

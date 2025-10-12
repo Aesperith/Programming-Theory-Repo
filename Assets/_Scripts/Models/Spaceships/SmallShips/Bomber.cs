@@ -10,7 +10,7 @@ public class Bomber : SmallShip
     private void Start()
     {
         healthPoint = 2;
-        speed = 1.5f;
+        speed = 2f;
         angleVelocity = new(0, 60, 0);
         tiltAngleMax = 45f;
         price = 125;
@@ -23,5 +23,11 @@ public class Bomber : SmallShip
     public override void Shoot()
     {
         missileLauncher.Shoot();
+    }
+
+    // POLYMORPHISM
+    public override void Activate1()
+    {
+        //No special power
     }
 }

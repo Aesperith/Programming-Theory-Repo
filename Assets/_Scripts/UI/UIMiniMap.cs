@@ -60,7 +60,7 @@ public class UIMiniMap : MonoBehaviour
     // the MonoBehaviour is created
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.Find("Player").transform;
         playerIconRect = playerIcon.GetComponent<RectTransform>();
 
         radiusWorld = playArea.Radius;

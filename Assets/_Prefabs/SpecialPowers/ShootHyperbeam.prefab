@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5378617507734831400}
   - component: {fileID: 4435963765343537571}
   m_Layer: 0
-  m_Name: Hyperbeam
+  m_Name: ShootHyperbeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8360b04f128664e954d092191dbbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HyperBeam
+  hyperBeamPrefab: {fileID: 7131426687714679552, guid: d1ddeba0d4061f149b04227a078aee7e, type: 3}

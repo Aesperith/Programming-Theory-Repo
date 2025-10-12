@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public string source;
+
     protected int damage;
 
     // ENCAPSULATION
@@ -15,5 +17,13 @@ public class Projectile : MonoBehaviour
                 damage = value;
             }
         }
+    }
+
+    protected float speed;
+
+    // ENCAPSULATION
+    public float Speed
+    {
+        get { return speed; }
     }
 }

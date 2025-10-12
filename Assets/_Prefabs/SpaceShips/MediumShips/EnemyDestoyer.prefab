@@ -67,6 +67,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   spaceship: {fileID: 6181028165868050168}
+  halfAngleView: 15
+  halfAngleShoot: 30
+  delay: 0.5
 --- !u!1 &5013160041714919150
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a135b3f61ea77ee4b8bb9d55b881b188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destoyer
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   innerRotation: {fileID: 7785491440727465125}
   missileLaunchers:
   - {fileID: 8615190389765341711}
@@ -272,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,6 +434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MissileLauncher 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -496,6 +510,10 @@ PrefabInstance:
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_Name
       value: MissileLauncher 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalPosition.x

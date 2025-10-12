@@ -10,7 +10,7 @@ public class Destoyer : MediumShip
     private void Start()
     {
         healthPoint = 10;
-        speed = 10;
+        speed = 25;
         angleVelocity = new(0, 30, 0);
         tiltAngleMax = 30f;
         price = 750;
@@ -31,5 +31,11 @@ public class Destoyer : MediumShip
         {
             missileLauncher.Shoot();
         }
+    }
+
+    // POLYMORPHISM
+    public override void Activate1()
+    {
+        //No special power
     }
 }

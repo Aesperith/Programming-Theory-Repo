@@ -98,25 +98,28 @@ public abstract class MediumShip : Spaceship
     /// <param name="laser">Laser data.</param>
     protected virtual void ManageLaserDamage(Laser laser)
     {
-        if (shield > 0)
+        if (!this.CompareTag(laser.source))
         {
-            shield--;
-            Debug.Log(gameObject.name + ": Shield block (remaining: "
-                + shield + ")");
-        }
-        else if (armor > 0)
-        {
-            armor--;
-            Debug.Log(gameObject.name + ": Armor block (remaining: "
-                + armor + ")");
-        }
-        else
-        {
-            Debug.Log(gameObject.name + ": Take " + laser.Damage
-                + " damages");
-            healthPoint -= laser.Damage;
-            Debug.Log("HP: " + healthPoint);
-        }
+            if (shield > 0)
+            {
+                shield--;
+                Debug.Log(gameObject.name + ": Shield block (remaining: "
+                    + shield + ")");
+            }
+            else if (armor > 0)
+            {
+                armor--;
+                Debug.Log(gameObject.name + ": Armor block (remaining: "
+                    + armor + ")");
+            }
+            else
+            {
+                Debug.Log(gameObject.name + ": Take " + laser.Damage
+                    + " damages");
+                healthPoint -= laser.Damage;
+                Debug.Log("HP: " + healthPoint);
+            }
+        }     
     }
 
     /// <summary>
@@ -125,18 +128,21 @@ public abstract class MediumShip : Spaceship
     /// <param name="missile">Missile data.</param>
     protected virtual void ManageMissileDamage(Missile missile)
     {
-        if (armor > 0)
+        if (!this.CompareTag(missile.source))
         {
-            armor--;
-            Debug.Log(gameObject.name + ": Armor block (remaining: "
-                + armor + ")");
-        }
-        else
-        {
-            Debug.Log(gameObject.name + ": Take " + missile.Damage
-                + " damages");
-            healthPoint -= missile.Damage;
-            Debug.Log(gameObject.name + ": HP: " + healthPoint);
+            if (armor > 0)
+            {
+                armor--;
+                Debug.Log(gameObject.name + ": Armor block (remaining: "
+                    + armor + ")");
+            }
+            else
+            {
+                Debug.Log(gameObject.name + ": Take " + missile.Damage
+                    + " damages");
+                healthPoint -= missile.Damage;
+                Debug.Log(gameObject.name + ": HP: " + healthPoint);
+            }            
         }
     }
 }

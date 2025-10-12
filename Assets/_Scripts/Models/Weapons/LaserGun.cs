@@ -24,6 +24,7 @@ public class LaserGun : Weapon
             if (laser != null)
             {
                 laser.Damage = damage;
+                laser.source = this.tag;
             }            
 
             pooledProjectile.SetActive(true); // activate it

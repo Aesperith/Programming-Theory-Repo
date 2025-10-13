@@ -55,14 +55,13 @@ public class GameManager : MonoBehaviour
     {
         pauseSystem = GameObject.FindFirstObjectByType<PauseSystem>();
         minimap = GameObject.FindFirstObjectByType<UIMiniMap>();
-
-        SetupPlayer();
     }
 
     // Start is called once before the first execution of Update after
     // the MonoBehaviour is created
     private void Start()
     {
+        SetupPlayer();
         isGameActive = true;
         SpawnRandomEnemyWave(waveNumber);   // ABSTRACTION
     }

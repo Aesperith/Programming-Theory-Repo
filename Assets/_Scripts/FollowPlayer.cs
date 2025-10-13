@@ -10,17 +10,22 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 offset = new(0, 20, 0);
 
     private GameObject player;
-    
+
+    private bool isReady;
+
 
     private void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
-        transform.eulerAngles = new Vector3
-        (
-            transform.eulerAngles.x, 
-            player.transform.eulerAngles.y,
-            transform.eulerAngles.z
-        );
+        if (isReady)
+        {
+            transform.position = player.transform.position + offset;
+            transform.eulerAngles = new Vector3
+            (
+                transform.eulerAngles.x,
+                player.transform.eulerAngles.y,
+                transform.eulerAngles.z
+            );
+        }
     }
 
     /// <summary>
@@ -32,6 +37,7 @@ public class FollowPlayer : MonoBehaviour
         if (player.TryGetComponent<PlayerController>(out var pc))
         {
             this.player = player;
+            isReady = true;
         }
     }
 }

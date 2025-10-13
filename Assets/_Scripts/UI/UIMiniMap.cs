@@ -36,6 +36,8 @@ public class UIMiniMap : MonoBehaviour
     private float radiusMap;
     private float scaleRatio;
 
+    private bool isReady;
+
     /// <summary>
     /// Type of icon.
     /// </summary>
@@ -91,8 +93,11 @@ public class UIMiniMap : MonoBehaviour
 
     private void LateUpdate()
     {
-        UpdatePlayerInMiniMap();    // ABSTRACTION
-        UpdateShipsInMiniMap();     // ABSTRACTION
+        if (isReady)
+        {
+            UpdatePlayerInMiniMap();    // ABSTRACTION
+            UpdateShipsInMiniMap();     // ABSTRACTION
+        }
     }
 
     /// <summary>
@@ -102,6 +107,7 @@ public class UIMiniMap : MonoBehaviour
     public void SetPlayer(GameObject player)
     {
         this.player = player.transform;
+        isReady = true;
     }
 
     /// <summary>

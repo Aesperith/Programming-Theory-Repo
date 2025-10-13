@@ -1,8 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Base class for Spaceship. 
+/// </summary>
 public abstract class Spaceship : MonoBehaviour
 {
+    [SerializeField]
+    protected AudioSource deathAudioSource;
+
     protected int healthPoint;
 
     // ENCAPSULATION
@@ -54,6 +61,8 @@ public abstract class Spaceship : MonoBehaviour
         rb.useGravity = false;
         rb.linearDamping = 1;
         rb.angularDamping = 1;
+
+        deathAudioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -171,6 +180,9 @@ public abstract class Spaceship : MonoBehaviour
     {
         if (healthPoint <= 0)
         {
+            AudioSource.PlayClipAtPoint
+                (deathAudioSource.clip, transform.position );
+
             if (gameObject.CompareTag("Enemy"))
             {
                 onDestroyed.Invoke(scorePoint);
@@ -178,8 +190,8 @@ public abstract class Spaceship : MonoBehaviour
             }
             else
             {
-                gameManager.GameOver();
-            }
+                gameObject.SetActive(false);
+            }          
         }
     }
 
@@ -197,7 +209,7 @@ public abstract class Spaceship : MonoBehaviour
                     Debug.Log(gameObject.name + ": HP: " + healthPoint);
 
                     other.gameObject.SetActive(false);
-
+                    
                     CheckDeath();
                 }
             }

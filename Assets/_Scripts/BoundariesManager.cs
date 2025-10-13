@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Manages the play area limit.
+/// <para>Keeps player and others inside the boundaries.</para> 
+/// Disables all projectiles that leave the boundaries.
+/// </summary>
 [RequireComponent (typeof(SphereCollider))]
 public class BoundariesManager : MonoBehaviour
 {

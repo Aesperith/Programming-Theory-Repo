@@ -1,7 +1,10 @@
 using UnityEngine;
 
-// INHERITANCE
-public class ShootHyperBeam : SpecialPower
+/// <summary>
+/// Special Power that shoots a HyperBeam.
+/// Inherits from <see cref="SpecialPower"/>.
+/// </summary>
+public class ShootHyperBeam : SpecialPower  // INHERITANCE
 {
     [SerializeField]
     private int damage;

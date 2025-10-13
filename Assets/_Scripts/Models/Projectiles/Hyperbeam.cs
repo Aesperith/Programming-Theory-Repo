@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public class Hyperbeam : Projectile
+/// <summary>
+/// Hyperbeam projectile from Special Power <see cref="ShootHyperBeam"/>.
+/// Inherits from <see cref="Projectile"/>.
+/// </summary>
+public class Hyperbeam : Projectile // INHERITANCE
 {
     private void Start()
     {

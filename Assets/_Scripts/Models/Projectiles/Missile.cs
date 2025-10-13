@@ -1,7 +1,10 @@
 using UnityEngine;
 
-// INHERITANCE
-public class Missile : Projectile
+/// <summary>
+/// Missile.
+/// Inherits from <see cref="Projectile"/>.
+/// </summary>
+public class Missile : Projectile   // INHERITANCE
 {
     private void Start()
     {

@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[DefaultExecutionOrder(1000)]
+/// <summary>
+/// Manages the Main Game.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -81,10 +84,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-        pauseSystem.PauseGame();
+        if (pauseSystem != null)
+        {
+            pauseSystem.PauseGame();
+        }
+        
         isGameActive = false;
         isGameOver = true;
-        gameOverScreen.SetActive(true);
+
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -212,9 +223,9 @@ public class GameManager : MonoBehaviour
     {
         Vector3 randPos = new
         (
-            Random.Range(-spawnZone.Radius / 2f, spawnZone.Radius / 2f),
+            Random.Range(-spawnZone.Radius * 0.8f, spawnZone.Radius * 0.8f),
             0f,
-            Random.Range(-spawnZone.Radius / 2f, spawnZone.Radius / 2f)
+            Random.Range(-spawnZone.Radius * 0.8f, spawnZone.Radius * 0.8f)
         );
 
         return randPos;

@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Windows;
 
+/// <summary>
+/// Controls the behavior of the <see cref="Missile"/> projectile.
+/// </summary>
 public class MissileController : MonoBehaviour
 {
     [SerializeField]
@@ -112,10 +115,11 @@ public class MissileController : MonoBehaviour
     {
         while (target != null)
         {
+            Vector3 position = target.transform.position;
+            
             yield return new WaitForSeconds(delay);
 
-            Vector3 direction = (target.transform.position
-                - this.transform.position);
+            Vector3 direction = (position - this.transform.position);
 
             float targetAngle = Vector3.Angle
                 (direction, this.transform.forward);

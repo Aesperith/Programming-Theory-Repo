@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+/// <summary>
+/// Links InputAction into a UI Button Click.
+/// </summary>
 [RequireComponent(typeof(Button))]
 public class UIActionToButton : MonoBehaviour
 {

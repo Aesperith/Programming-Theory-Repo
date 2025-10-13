@@ -1,7 +1,10 @@
 using UnityEngine;
 
-// INHERITANCE
-public class Destoyer : MediumShip
+/// <summary>
+/// Destoyer Spaceship.
+/// Inherits from <see cref="MediumShip"/>.
+/// </summary>
+public class Destoyer : MediumShip  // INHERITANCE
 {
     [SerializeField]
     private MissileLauncher[] missileLaunchers = new MissileLauncher[3];

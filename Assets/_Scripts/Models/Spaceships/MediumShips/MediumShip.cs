@@ -2,8 +2,11 @@ using System.Collections;
 using System.Reflection;
 using UnityEngine;
 
-// INHERITANCE
-public abstract class MediumShip : Spaceship
+/// <summary>
+/// Base class for MediumShip.
+/// Inherits from <see cref="Spaceship"/>.
+/// </summary>
+public abstract class MediumShip : Spaceship    // INHERITANCE
 {
     protected int armor;
     protected int maxArmor;
@@ -21,6 +24,8 @@ public abstract class MediumShip : Spaceship
         }
     }
 
+    [SerializeField]
+    protected GameObject shieldPrefab;
     protected int shield;
     protected int maxShield;
 
@@ -47,6 +52,15 @@ public abstract class MediumShip : Spaceship
 
     protected void ManageShield()
     {
+        if (shield <= 0)
+        {
+            shieldPrefab.SetActive(false);
+        }
+        else
+        {
+            shieldPrefab.SetActive(true);
+        }
+
         if (shield < maxShield && !isRechargingShield)
         {
             StartCoroutine(RechargeShield());
@@ -74,7 +88,7 @@ public abstract class MediumShip : Spaceship
                 ManageLaserDamage(laser);
 
                 other.gameObject.SetActive(false);
-
+                
                 CheckDeath();
             }
             else if(other.gameObject.TryGetComponent<Missile>(out var missile))
@@ -82,7 +96,7 @@ public abstract class MediumShip : Spaceship
                 ManageMissileDamage(missile);
 
                 other.gameObject.SetActive(false);
-
+                
                 CheckDeath();
             }
             else

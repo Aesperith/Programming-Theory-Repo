@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// For Object Pooling.
+/// </summary>
 public abstract class ObjectPooler : MonoBehaviour
 {
     public List<GameObject> pooledObjects;

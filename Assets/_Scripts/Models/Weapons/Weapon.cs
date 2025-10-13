@@ -1,7 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Base class for Weapon in <see cref="Spaceship"/>.
+/// </summary>
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField]
+    protected AudioSource shootAudioSource;
+
     protected int damage;
 
     // ENCAPSULATION
@@ -33,6 +39,12 @@ public abstract class Weapon : MonoBehaviour
     }
 
     protected float cooldownUntilNextShot;
+
+
+    private void Awake()
+    {
+        shootAudioSource = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Shoot with the weapon.

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Base class for Special Power.
+/// </summary>
 public abstract class SpecialPower : MonoBehaviour
 {
     protected float cooldownTime;

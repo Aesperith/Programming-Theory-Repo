@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Base class for Projectile.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     public string source;

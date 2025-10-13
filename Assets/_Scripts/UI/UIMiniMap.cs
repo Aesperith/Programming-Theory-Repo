@@ -4,7 +4,9 @@ using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Manages the UI Minimap.
+/// </summary>
 public class UIMiniMap : MonoBehaviour
 {
     [SerializeField]
@@ -22,39 +24,58 @@ public class UIMiniMap : MonoBehaviour
     [SerializeField]
     private GameObject enemyIcon;
 
+    [SerializeField]
+    private GameObject allyIcon;
+
     private RectTransform playerIconRect;
 
     [SerializeField]
-    private List<EnemyDataInMiniMap> enemyList = new();
+    private List<ShipDataInMiniMap> shipsList = new();
 
     private float radiusWorld;
     private float radiusMap;
     private float scaleRatio;
 
-    [Serializable]
-    public struct EnemyDataInMiniMap
+    /// <summary>
+    /// Type of icon.
+    /// </summary>
+    public enum TypeIcon
     {
-        public GameObject enemyIcon;
-        public RectTransform enemyIconRect;
-        public Transform enemy;
+        Enemy,
+        Ally
+    }
+
+    /// <summary>
+    /// Other ship data in the minimap.
+    /// </summary>
+    [Serializable]
+    public struct ShipDataInMiniMap
+    {
+        public GameObject shipIcon;
+        public RectTransform shipIconRect;
+        public Transform ship;
 
         /// <summary>
         /// Update the enemy icon position in the minimap.
         /// </summary>
-        public void UpdateInMiniMap(float scaleRatio)
+        public readonly void UpdateInMiniMap(float scaleRatio)
         {
-            enemyIconRect.anchoredPosition = new Vector3
-            (
-                enemy.position.x * scaleRatio,
-                enemy.position.z * scaleRatio,
-                0
-            );
+            if (shipIcon != null && shipIconRect != null && ship != null)
+            {
+                shipIconRect.anchoredPosition = new Vector3
+                (
+                    ship.position.x * scaleRatio,
+                    ship.position.z * scaleRatio,
+                    0
+                );
 
-            Quaternion enemyIconRotation = Quaternion.Euler
-                (0f, 0f, -enemy.rotation.eulerAngles.y);
-            enemyIconRect.rotation = enemyIconRotation;
+                Quaternion shipIconRotation = Quaternion.Euler
+                    (0f, 0f, -ship.rotation.eulerAngles.y);
+                shipIconRect.rotation = shipIconRotation;
+            }
         }
     }
+
 
     // Start is called once before the first execution of Update after
     // the MonoBehaviour is created
@@ -65,46 +86,50 @@ public class UIMiniMap : MonoBehaviour
 
         radiusWorld = playArea.Radius;
         radiusMap = miniMap.rectTransform.rect.width / 2f;
-        radiusMap -= (0.1f * radiusMap);    // Sprite radius != miniMap radius
+        radiusMap *= 0.9f;   // Sprite radius != miniMap radius
         scaleRatio = radiusMap / radiusWorld;
     }
 
     private void LateUpdate()
     {
         UpdatePlayerInMiniMap();    // ABSTRACTION
-        UpdateEnemyInMiniMap();     // ABSTRACTION
+        UpdateShipsInMiniMap();     // ABSTRACTION
     }
 
     /// <summary>
-    /// Register the enemy in the minimap.
-    /// </summary>
-    /// <returns>Enemy data in minimap.</returns>
-    public EnemyDataInMiniMap RegisterToMiniMap(Transform enemy)
+    /// Register the ship in the minimap.
+    /// <param name="ship">The transform of the ship.</param>
+    /// <param name="type">The type of icon on the minimap.</param>
+    /// <returns>Ship data in the minimap.</returns>
+    public ShipDataInMiniMap RegisterToMiniMap(Transform ship, TypeIcon type)
     {
-        EnemyDataInMiniMap enemyData = new()
+        ShipDataInMiniMap shipData = new()
         {
-            enemy = enemy,
-            enemyIcon = Instantiate
-            (
-                enemyIcon, miniMap.transform
-            )
+            ship = ship,
+            shipIcon = type switch
+            {
+                TypeIcon.Enemy => Instantiate(enemyIcon, miniMap.transform),
+                TypeIcon.Ally => Instantiate(allyIcon, miniMap.transform),
+                _ => Instantiate(enemyIcon, miniMap.transform)
+            }
         };
-        enemyData.enemyIconRect = enemyData.enemyIcon
+
+        shipData.shipIconRect = shipData.shipIcon
             .GetComponent<RectTransform>();
 
-        enemyList.Add(enemyData);
+        shipsList.Add(shipData);
 
-        return enemyData;
+        return shipData;
     }
 
     /// <summary>
-    /// Unregister the enemy from the minimap.
+    /// Unregister the ship from the minimap.
     /// </summary>
-    /// <param name="enemyData">Enemy data to remove.</param>
-    public void UnregisterToMiniMap(EnemyDataInMiniMap enemyData)
+    /// <param name="shipData">Ship data to remove.</param>
+    public void UnregisterToMiniMap(ShipDataInMiniMap shipData)
     {
-        Destroy(enemyData.enemyIcon);
-        enemyList.Remove(enemyData);
+        Destroy(shipData.shipIcon);
+        shipsList.Remove(shipData);
     }
 
     /// <summary>
@@ -125,13 +150,13 @@ public class UIMiniMap : MonoBehaviour
     }
 
     /// <summary>
-    /// Update the enemy(ies) icon position in the minimap.
+    /// Update the other ship(s) icon(s) position in the minimap.
     /// </summary>
-    private void UpdateEnemyInMiniMap()
+    private void UpdateShipsInMiniMap()
     {
-        foreach (var enemy in enemyList)
+        foreach (var ship in shipsList)
         {
-            enemy.UpdateInMiniMap(scaleRatio);
+            ship.UpdateInMiniMap(scaleRatio);
         }
     }
 }

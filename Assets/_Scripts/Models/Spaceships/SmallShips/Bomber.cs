@@ -1,7 +1,10 @@
 using UnityEngine;
 
-// INHERITANCE
-public class Bomber : SmallShip
+/// <summary>
+/// Bomber Spaceship.
+/// Inherits from <see cref="SmallShip"/>.
+/// </summary>
+public class Bomber : SmallShip // INHERITANCE
 {
     [SerializeField]
     private MissileLauncher missileLauncher;

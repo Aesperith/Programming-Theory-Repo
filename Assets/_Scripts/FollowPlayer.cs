@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Camera's component for following the player.
+/// </summary>
+[RequireComponent(typeof(Camera))]
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField]

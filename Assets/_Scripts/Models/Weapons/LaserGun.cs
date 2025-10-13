@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public class LaserGun : Weapon
+/// <summary>
+/// Laser Gun.
+/// Inherits from <see cref="Weapon"/>.
+/// </summary>
+public class LaserGun : Weapon  // INHERITANCE
 {
     private Laser laser;
 
@@ -30,6 +34,9 @@ public class LaserGun : Weapon
             pooledProjectile.SetActive(true); // activate it
             pooledProjectile.transform.SetPositionAndRotation
                 (transform.position, transform.rotation);
+
+            shootAudioSource.Play();
+
             cooldownUntilNextShot = Time.time + cooldownTime;
         }
     }

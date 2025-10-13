@@ -1,8 +1,11 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-// INHERITANCE
-public class Fighter : SmallShip
+/// <summary>
+/// Fighter Spaceship.
+/// Inherits from <see cref="SmallShip"/>.
+/// </summary>
+public class Fighter : SmallShip    // INHERITANCE
 {
     [SerializeField]
     private LaserGun laserGun;

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Reflection;
 using UnityEngine;
 
-public class MissileLauncher : Weapon
+/// <summary>
+/// Missile Launcher.
+/// Inherits from <see cref="Weapon"/>.
+/// </summary>
+public class MissileLauncher : Weapon   // INHERITANCE
 {
     [SerializeField]
     private int munitionMax = 3;
@@ -48,6 +52,9 @@ public class MissileLauncher : Weapon
                 pooledProjectile.SetActive(true); // activate it
                 pooledProjectile.transform.SetPositionAndRotation
                     (transform.position, transform.rotation);
+
+                shootAudioSource.Play();
+
                 cooldownUntilNextShot = Time.time + cooldownTime;
 
                 munition--;

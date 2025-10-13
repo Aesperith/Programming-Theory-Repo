@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Manages the player's input to control the player's spaceship.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
@@ -58,6 +61,14 @@ public class PlayerController : MonoBehaviour
         if (actionSpecial1.WasPressedThisFrame())
         {
             spaceship.Activate1();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
         }
     }
 }

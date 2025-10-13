@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// INHERITANCE
-public class Battlecruiser : HeavyShip
+/// <summary>
+/// Battlecruiser Spaceship.
+/// Inherits from <see cref="HeavyShip"/>.
+/// </summary>
+public class Battlecruiser : HeavyShip  // INHERITANCE
 {
     [SerializeField]
     private List<Weapon> weapons;

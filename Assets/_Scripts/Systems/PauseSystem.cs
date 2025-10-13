@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// The Pause System of the game.
+/// </summary>
 public class PauseSystem : MonoBehaviour
 {
     public static PauseSystem Instance;
@@ -25,12 +28,18 @@ public class PauseSystem : MonoBehaviour
         isPaused = false;
     }
 
+    /// <summary>
+    /// Pauses the game.
+    /// </summary>
     public void PauseGame()
     {
         Time.timeScale = 0f;
         isPaused = true;
     }
 
+    /// <summary>
+    /// Resume the game.
+    /// </summary>
     public void ResumeGame()
     {
         Time.timeScale = 1;

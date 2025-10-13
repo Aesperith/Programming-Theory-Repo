@@ -1,7 +1,10 @@
 using UnityEngine;
 
-// INHERITANCE
-public class Corvette : MediumShip
+/// <summary>
+/// Corvette Spaceship.
+/// Inherits from <see cref="MediumShip"/>.
+/// </summary>
+public class Corvette : MediumShip  // INHERITANCE
 {
     [SerializeField]
     private LaserGun[] laserGuns = new LaserGun[3];

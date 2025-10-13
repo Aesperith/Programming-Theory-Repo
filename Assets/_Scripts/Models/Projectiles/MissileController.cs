@@ -70,11 +70,11 @@ public class MissileController : MonoBehaviour
     {
         if (isActive)
         {
-            Orientate();
+            Orientate();    // ABSTRACTION
         }
         else
         {
-            SelfDestruct();
+            SelfDestruct(); // ABSTRACTION
         }
     }
 

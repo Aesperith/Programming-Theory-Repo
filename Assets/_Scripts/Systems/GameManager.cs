@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private Camera mainCamera;
+
+    [SerializeField]
     private TMP_Text score;
 
     [SerializeField]
     private GameObject gameOverScreen;
+
+    [SerializeField]
+    private List<GameObject> playerShipsPrefabs;
 
     [SerializeField]
     private List<GameObject> smallShipsPrefabs;
@@ -32,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     private PauseSystem pauseSystem;
 
+    private UIMiniMap minimap;
+
     public bool isGameActive;
     public bool isGameOver;
 
@@ -43,11 +52,18 @@ public class GameManager : MonoBehaviour
     private const int mediumShipMax = 3;
 
 
+    private void Awake()
+    {
+        pauseSystem = GameObject.FindFirstObjectByType<PauseSystem>();
+        minimap = GameObject.FindFirstObjectByType<UIMiniMap>();
+
+        SetupPlayer();
+    }
+
     // Start is called once before the first execution of Update after
     // the MonoBehaviour is created
     private void Start()
     {
-        pauseSystem = GameObject.FindFirstObjectByType<PauseSystem>();
         isGameActive = true;
         SpawnRandomEnemyWave(waveNumber);   // ABSTRACTION
     }
@@ -104,6 +120,17 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    /// <summary>
+    /// Set the player ship.
+    /// </summary>
+    /// <param name="ship">0: Fighter, 1: Bomber, 2: Corvette,
+    /// 3: Destroyer, 4: Carrier, 5: Battlecruiser.</param>
+    public void SetPlayerShip(int ship)
+    {
+        PlayerDataManager.Instance.SpaceShip = (PlayerDataManager.SpaceShipType)ship;
+        RestartGame();
     }
 
     /// <summary>
@@ -229,5 +256,25 @@ public class GameManager : MonoBehaviour
         );
 
         return randPos;
+    }
+
+    /// <summary>
+    /// Setup the player spaceship, camera and minimap. 
+    /// </summary>
+    private void SetupPlayer()
+    {
+        GameObject player = PlayerDataManager.Instance.SpaceShip switch
+        {
+            PlayerDataManager.SpaceShipType.Fighter => Instantiate(playerShipsPrefabs[0], parentSpawn),
+            PlayerDataManager.SpaceShipType.Bomber => Instantiate(playerShipsPrefabs[1], parentSpawn),
+            PlayerDataManager.SpaceShipType.Corvette => Instantiate(playerShipsPrefabs[2], parentSpawn),
+            PlayerDataManager.SpaceShipType.Destroyer => Instantiate(playerShipsPrefabs[3], parentSpawn),
+            PlayerDataManager.SpaceShipType.Carrier => Instantiate(playerShipsPrefabs[4], parentSpawn),
+            PlayerDataManager.SpaceShipType.Battlecruiser => Instantiate(playerShipsPrefabs[5], parentSpawn),
+            _ => Instantiate(playerShipsPrefabs[0], parentSpawn),
+        };
+
+        mainCamera.GetComponent<FollowPlayer>().SetPlayer(player);
+        minimap.SetPlayer(player);
     }
 }

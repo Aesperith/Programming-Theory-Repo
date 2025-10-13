@@ -81,7 +81,6 @@ public class UIMiniMap : MonoBehaviour
     // the MonoBehaviour is created
     private void Start()
     {
-        player = GameObject.Find("Player").transform;
         playerIconRect = playerIcon.GetComponent<RectTransform>();
 
         radiusWorld = playArea.Radius;
@@ -94,6 +93,15 @@ public class UIMiniMap : MonoBehaviour
     {
         UpdatePlayerInMiniMap();    // ABSTRACTION
         UpdateShipsInMiniMap();     // ABSTRACTION
+    }
+
+    /// <summary>
+    /// Set the player for the minimap to follow.
+    /// </summary>
+    /// <param name="player">Player to follow.</param>
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player.transform;
     }
 
     /// <summary>

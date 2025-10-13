@@ -10,7 +10,7 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 offset = new(0, 20, 0);
 
     private GameObject player;
-
+    
 
     private void LateUpdate()
     {

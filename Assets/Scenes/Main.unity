@@ -869,6 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347298186}
   - component: {fileID: 347298188}
+  - component: {fileID: 347298192}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -926,6 +927,21 @@ MonoBehaviour:
   parentSpawn: {fileID: 483672366}
   isGameActive: 0
   isGameOver: 0
+--- !u!114 &347298192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347298185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b45fa8f3ce58046b6a64b439880f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFighterPooler
+  pooledObjects: []
+  objectToPool: {fileID: 5867951319404328442, guid: 92299bf3f33c0d9458a494d150bc8754, type: 3}
+  amountToPool: 6
 --- !u!1 &483672365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,6 +5031,50 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1453714940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453714942}
+  - component: {fileID: 1453714941}
+  m_Layer: 0
+  m_Name: PlayerDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1453714941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453714940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0399a95f901f1494da0b9316416b2136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataManager
+--- !u!4 &1453714942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453714940}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458012641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,50 +5637,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515662003}
   m_CullTransparentMesh: 1
---- !u!1 &1525144842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1525144843}
-  - component: {fileID: 1525144844}
-  m_Layer: 0
-  m_Name: PlayerDataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1525144843
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525144842}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1525144844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525144842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f3196362d8c4247885a2a05858d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataManager
 --- !u!1 &1541558968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,6 +6025,117 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1605725342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605725343}
+  - component: {fileID: 1605725348}
+  - component: {fileID: 1605725347}
+  - component: {fileID: 1605725346}
+  - component: {fileID: 1605725345}
+  - component: {fileID: 1605725344}
+  m_Layer: 0
+  m_Name: PoolSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1605725343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1855255094}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1605725344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b45fa8f3ce58046b6a64b439880f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFighterPooler
+  pooledObjects: []
+  objectToPool: {fileID: 5867951319404328442, guid: 92299bf3f33c0d9458a494d150bc8754, type: 3}
+  amountToPool: 6
+--- !u!114 &1605725345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4953ef5d77c2449fd4ab29b9443c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFighterPooler
+  pooledObjects: []
+  objectToPool: {fileID: 9093772515946342411, guid: 2ab7f02756358ed42b4843453ee1f070, type: 3}
+  amountToPool: 6
+--- !u!114 &1605725346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d223062962818984cba86e7c32514c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HyperbeamPooler
+  pooledObjects: []
+  objectToPool: {fileID: 7131426687714679552, guid: d1ddeba0d4061f149b04227a078aee7e, type: 3}
+  amountToPool: 4
+--- !u!114 &1605725347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f99f1c9fdb3734391a1b03fc279750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissilePooler
+  pooledObjects: []
+  objectToPool: {fileID: 2269403842742011108, guid: ac122b20bc160fe468610d339cb5245d, type: 3}
+  amountToPool: 20
+--- !u!114 &1605725348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605725342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a55052ca07a0441977447d42911740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserPooler
+  pooledObjects: []
+  objectToPool: {fileID: 2269403842742011108, guid: d131415a8c119df4c9d919ab142d84cc, type: 3}
+  amountToPool: 20
 --- !u!1 &1617098038
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,117 +7012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9b3ef4d8fc10741a3b2266af833bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoundariesManager
---- !u!1 &1788403221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1788403222}
-  - component: {fileID: 1788403227}
-  - component: {fileID: 1788403226}
-  - component: {fileID: 1788403225}
-  - component: {fileID: 1788403224}
-  - component: {fileID: 1788403223}
-  m_Layer: 0
-  m_Name: PoolSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1788403222
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1855255094}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788403223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b45fa8f3ce58046b6a64b439880f36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerFighterPooler
-  pooledObjects: []
-  objectToPool: {fileID: 5867951319404328442, guid: 92299bf3f33c0d9458a494d150bc8754, type: 3}
-  amountToPool: 6
---- !u!114 &1788403224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab4953ef5d77c2449fd4ab29b9443c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFighterPooler
-  pooledObjects: []
-  objectToPool: {fileID: 9093772515946342411, guid: 2ab7f02756358ed42b4843453ee1f070, type: 3}
-  amountToPool: 6
---- !u!114 &1788403225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d223062962818984cba86e7c32514c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HyperbeamPooler
-  pooledObjects: []
-  objectToPool: {fileID: 7131426687714679552, guid: d1ddeba0d4061f149b04227a078aee7e, type: 3}
-  amountToPool: 4
---- !u!114 &1788403226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f99f1c9fdb3734391a1b03fc279750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MissilePooler
-  pooledObjects: []
-  objectToPool: {fileID: 2269403842742011108, guid: ac122b20bc160fe468610d339cb5245d, type: 3}
-  amountToPool: 20
---- !u!114 &1788403227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788403221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a55052ca07a0441977447d42911740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LaserPooler
-  pooledObjects: []
-  objectToPool: {fileID: 2269403842742011108, guid: d131415a8c119df4c9d919ab142d84cc, type: 3}
-  amountToPool: 20
 --- !u!1 &1795023050
 GameObject:
   m_ObjectHideFlags: 0
@@ -7201,8 +7217,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347298186}
+  - {fileID: 1605725343}
   - {fileID: 1321013586}
-  - {fileID: 1788403222}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1881804840
@@ -7820,4 +7836,4 @@ SceneRoots:
   - {fileID: 186080965}
   - {fileID: 483672366}
   - {fileID: 1855255094}
-  - {fileID: 1525144843}
+  - {fileID: 1453714942}

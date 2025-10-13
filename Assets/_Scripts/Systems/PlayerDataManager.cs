@@ -7,6 +7,9 @@ public class PlayerDataManager : MonoBehaviour
 {
     public static PlayerDataManager Instance;
 
+    /// <summary>
+    /// Type of spaceship of the player.
+    /// </summary>
     public enum SpaceShipType
     {
         Fighter,

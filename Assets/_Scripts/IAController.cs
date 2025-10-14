@@ -26,10 +26,7 @@ public class IAController : MonoBehaviour
     private Spaceship spaceship;
 
     [SerializeField]
-    private float halfAngleView = 10f;
-
-    [SerializeField]
-    private float halfAngleShoot = 10f;
+    private float halfAngleView = 5f;
 
     [SerializeField]
     private float delay = 0.1f;
@@ -45,6 +42,7 @@ public class IAController : MonoBehaviour
     private Vector2 input;
     private Coroutine followTarget;
     private Coroutine shootTarget;
+    private Coroutine activatePower;
 
     private bool isInit = false;
 
@@ -130,6 +128,7 @@ public class IAController : MonoBehaviour
             target = other.gameObject;
             followTarget = StartCoroutine(FollowTarget());
             shootTarget = StartCoroutine(ShootTarget());
+            activatePower = StartCoroutine(ActivatePower());
         }
     }
 
@@ -139,6 +138,7 @@ public class IAController : MonoBehaviour
         {
             StopCoroutine(followTarget);
             StopCoroutine(shootTarget);
+            StopCoroutine(activatePower);
             target = null;
             input = Vector2.zero;
             spaceship.Stop();
@@ -200,9 +200,29 @@ public class IAController : MonoBehaviour
             float targetAngle = Vector3.Angle
                (direction, this.transform.forward);
 
-            if (targetAngle <= halfAngleShoot)
+            if (targetAngle <= halfAngleView)
             {
                 spaceship.Shoot();
+            }
+        }
+    }
+
+    private IEnumerator ActivatePower()
+    {
+        while (target != null)
+        {
+            Vector3 position = target.transform.position;
+
+            yield return new WaitForSeconds(delay);
+
+            Vector3 direction = (position - this.transform.position);
+
+            float targetAngle = Vector3.Angle
+               (direction, this.transform.forward);
+
+            if (targetAngle <= halfAngleView)
+            {
+                spaceship.Activate1();
             }
         }
     }

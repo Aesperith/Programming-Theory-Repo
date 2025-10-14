@@ -28,6 +28,9 @@ public class Carrier : HeavyShip    // INHERITANCE
         cooldownShield = 3;
         mass = 1500;
         rb.mass = mass;
+
+        UpdateHpUI();
+        UpdateArmorUI();
     }
 
     // POLYMORPHISM

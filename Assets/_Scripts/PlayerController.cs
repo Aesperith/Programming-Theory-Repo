@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Spaceship spaceship;
 
+    [SerializeField]
+    private TMP_Text playerNameLabel;
+
     private GameManager gameManager;
+    
     private InputAction actionMove;
     private InputAction actionShot;
     private InputAction actionSpecial1;
@@ -19,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.FindFirstObjectByType<GameManager>();
+
+        playerNameLabel.text = PlayerDataManager.Instance.PlayerName;
+
         actionMove = InputSystem.actions.FindAction("Move");
         actionShot = InputSystem.actions.FindAction("Shot");
         actionSpecial1 = InputSystem.actions.FindAction("Special1");

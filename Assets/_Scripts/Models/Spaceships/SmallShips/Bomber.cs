@@ -22,6 +22,8 @@ public class Bomber : SmallShip // INHERITANCE
         scorePoint = 5;
         mass = 10;
         rb.mass = mass;
+
+        UpdateHpUI();
     }
 
     // POLYMORPHISM

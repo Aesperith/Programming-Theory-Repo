@@ -249,16 +249,21 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Return a random position in the center of 
-    /// the play area
+    /// Return a random position in the play area
     /// </summary>
-    /// <param name="ratioRadius">Percentage of the play area 
-    /// to included in the random selection.</param>
+    /// <param name="ratioInRadius">Percentage of the play area 
+    /// to exclude in the random selection (from the center)(default: 10%).</param>
+    /// <param name="ratioOutRadius">Percentage of the play area 
+    /// to include in the random selection (from the center)(default: 90%).</param>
     /// <returns>Random position.</returns>
-    private Vector3 RandomPositionInPlayArea(float ratioRadius = 0.9f)
+    private Vector3 RandomPositionInPlayArea
+        (float ratioInRadius = 0.1f, float ratioOutRadius = 0.9f)
     {
         float randRadius = Random.Range
-            (-spawnZone.Radius * ratioRadius, spawnZone.Radius * ratioRadius);
+        (
+            spawnZone.Radius * ratioInRadius, 
+            spawnZone.Radius * ratioOutRadius
+        );
         float randAngle = Random.Range(0f, 359f);
         float randPosX = randRadius * Mathf.Cos(randAngle * Mathf.Deg2Rad);
         float randPosY = randRadius * Mathf.Sin(randAngle * Mathf.Deg2Rad);

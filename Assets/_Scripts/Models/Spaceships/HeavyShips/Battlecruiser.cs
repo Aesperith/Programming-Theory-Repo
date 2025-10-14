@@ -28,6 +28,9 @@ public class Battlecruiser : HeavyShip  // INHERITANCE
         cooldownShield = 3;
         mass = 2000;
         rb.mass = mass;
+
+        UpdateHpUI();
+        UpdateArmorUI();
     }
 
     // POLYMORPHISM

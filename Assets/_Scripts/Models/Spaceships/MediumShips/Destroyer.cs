@@ -27,6 +27,9 @@ public class Destroyer : MediumShip  // INHERITANCE
         cooldownShield = 3;
         mass = 150;
         rb.mass = mass;
+
+        UpdateHpUI();
+        UpdateArmorUI();
     }
 
     // POLYMORPHISM

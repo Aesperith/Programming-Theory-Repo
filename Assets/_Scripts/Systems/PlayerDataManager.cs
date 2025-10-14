@@ -34,7 +34,7 @@ public class PlayerDataManager : MonoBehaviour
         Corvette = 1 << 2,
         Destroyer = 1 << 3,
         Carrier = 1 << 4,
-        Battlecruiser = 1 << 5,
+        Battlecruiser = 1 << 5
     }
 
     public string PlayerName { get; set; }

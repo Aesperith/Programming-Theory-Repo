@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,9 @@ public abstract class Spaceship : MonoBehaviour
 {
     [SerializeField]
     protected AudioSource deathAudioSource;
+
+    [SerializeField]
+    protected TMP_Text hpUI;
 
     protected int healthPoint;
 
@@ -62,6 +66,14 @@ public abstract class Spaceship : MonoBehaviour
         rb.angularDamping = 1;
 
         deathAudioSource = GetComponent<AudioSource>();
+    }
+
+    /// <summary>
+    /// Update the HP UI.
+    /// </summary>
+    protected void UpdateHpUI()
+    {
+        hpUI.text = "HP: " + healthPoint;
     }
 
     /// <summary>
@@ -203,9 +215,8 @@ public abstract class Spaceship : MonoBehaviour
             {
                 if (!this.CompareTag(projectile.source))
                 {
-                    Debug.Log(gameObject.name + ": Take " + projectile.Damage + " damages");
                     healthPoint -= projectile.Damage;
-                    Debug.Log(gameObject.name + ": HP: " + healthPoint);
+                    UpdateHpUI();
 
                     other.gameObject.SetActive(false);
                     

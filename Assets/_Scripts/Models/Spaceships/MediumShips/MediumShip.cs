@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Reflection;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,9 @@ using UnityEngine;
 /// </summary>
 public abstract class MediumShip : Spaceship    // INHERITANCE
 {
+    [SerializeField]
+    protected TMP_Text armorUI;
+
     protected int armor;
     protected int maxArmor;
 
@@ -48,6 +52,22 @@ public abstract class MediumShip : Spaceship    // INHERITANCE
     protected virtual void Update()
     {
         ManageShield();
+    }
+
+    /// <summary>
+    /// Update the Armor UI.
+    /// </summary>
+    protected void UpdateArmorUI()
+    {
+        if (armor <= 0)
+        {
+            armorUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            armorUI.gameObject.SetActive(true);
+            armorUI.text = "Armor: " + armor;
+        }
     }
 
     protected void ManageShield()
@@ -117,21 +137,16 @@ public abstract class MediumShip : Spaceship    // INHERITANCE
             if (shield > 0)
             {
                 shield--;
-                Debug.Log(gameObject.name + ": Shield block (remaining: "
-                    + shield + ")");
             }
             else if (armor > 0)
             {
                 armor--;
-                Debug.Log(gameObject.name + ": Armor block (remaining: "
-                    + armor + ")");
+                UpdateArmorUI();
             }
             else
             {
-                Debug.Log(gameObject.name + ": Take " + laser.Damage
-                    + " damages");
                 healthPoint -= laser.Damage;
-                Debug.Log("HP: " + healthPoint);
+                UpdateHpUI();
             }
         }     
     }
@@ -147,15 +162,12 @@ public abstract class MediumShip : Spaceship    // INHERITANCE
             if (armor > 0)
             {
                 armor--;
-                Debug.Log(gameObject.name + ": Armor block (remaining: "
-                    + armor + ")");
+                UpdateArmorUI();
             }
             else
             {
-                Debug.Log(gameObject.name + ": Take " + missile.Damage
-                    + " damages");
                 healthPoint -= missile.Damage;
-                Debug.Log(gameObject.name + ": HP: " + healthPoint);
+                UpdateHpUI();
             }            
         }
     }

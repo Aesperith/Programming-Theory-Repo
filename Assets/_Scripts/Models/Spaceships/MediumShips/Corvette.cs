@@ -27,6 +27,9 @@ public class Corvette : MediumShip  // INHERITANCE
         cooldownShield = 3;
         mass = 100;
         rb.mass = mass;
+
+        UpdateHpUI();
+        UpdateArmorUI();
     }
 
     // POLYMORPHISM

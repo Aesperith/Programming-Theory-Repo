@@ -23,6 +23,8 @@ public class Fighter : SmallShip    // INHERITANCE
         scorePoint = 1;
         mass = 10;
         rb.mass = mass;
+
+        UpdateHpUI();
     }
 
     // POLYMORPHISM

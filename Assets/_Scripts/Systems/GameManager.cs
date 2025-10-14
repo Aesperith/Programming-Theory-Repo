@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public bool isGameOver;
 
-    private int points;
     private int waveNumber = 1;
     private int enemyCount;
 
@@ -83,14 +82,22 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Update the score text.
+    /// </summary>
+    public void UpdateScore()
+    {
+        score.text = $"Credits: {PlayerDataManager.Instance.Credits}";
+    }
+
+    /// <summary>
     /// Add point to the total points
     /// and update the UI label text.
     /// </summary>
     /// <param name="point">Point to add to total.</param>
     public void AddPoint(int point)
     {
-        points += point;
-        score.text = $"Credits: {points}";
+        PlayerDataManager.Instance.Credits += point;
+        UpdateScore(); ;
     }
 
     /// <summary>
@@ -127,7 +134,8 @@ public class GameManager : MonoBehaviour
     /// 3: Destroyer, 4: Carrier, 5: Battlecruiser.</param>
     public void SetPlayerShip(int ship)
     {
-        PlayerDataManager.Instance.SpaceShip = (PlayerDataManager.SpaceShipType)ship;
+        PlayerDataManager.Instance.CurrentShip = 
+            (PlayerDataManager.SpaceShipType)ship;
         RestartGame();
     }
 
@@ -170,7 +178,8 @@ public class GameManager : MonoBehaviour
                 InstantiateRandomMediumShip();  // ABSTRACTION
             }
 
-            int heavyShipToSpawn = enemiesToSpawn - smallShipMax - mediumShipMax;
+            int heavyShipToSpawn = 
+                enemiesToSpawn - smallShipMax - mediumShipMax;
 
             for (int i = 0; i < heavyShipToSpawn; i++)
             {
@@ -243,15 +252,18 @@ public class GameManager : MonoBehaviour
     /// Return a random position in the center of 
     /// the play area
     /// </summary>
+    /// <param name="ratioRadius">Percentage of the play area 
+    /// to included in the random selection.</param>
     /// <returns>Random position.</returns>
-    private Vector3 RandomPositionInPlayArea()
+    private Vector3 RandomPositionInPlayArea(float ratioRadius = 0.9f)
     {
-        Vector3 randPos = new
-        (
-            Random.Range(-spawnZone.Radius * 0.8f, spawnZone.Radius * 0.8f),
-            0f,
-            Random.Range(-spawnZone.Radius * 0.8f, spawnZone.Radius * 0.8f)
-        );
+        float randRadius = Random.Range
+            (-spawnZone.Radius * ratioRadius, spawnZone.Radius * ratioRadius);
+        float randAngle = Random.Range(0f, 359f);
+        float randPosX = randRadius * Mathf.Cos(randAngle * Mathf.Deg2Rad);
+        float randPosY = randRadius * Mathf.Sin(randAngle * Mathf.Deg2Rad);
+
+        Vector3 randPos = new(randPosX, 0f, randPosY);
 
         return randPos;
     }
@@ -261,18 +273,26 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SetupPlayer()
     {
-        GameObject player = PlayerDataManager.Instance.SpaceShip switch
+        GameObject player = PlayerDataManager.Instance.CurrentShip switch
         {
-            PlayerDataManager.SpaceShipType.Fighter => Instantiate(playerShipsPrefabs[0], parentSpawn),
-            PlayerDataManager.SpaceShipType.Bomber => Instantiate(playerShipsPrefabs[1], parentSpawn),
-            PlayerDataManager.SpaceShipType.Corvette => Instantiate(playerShipsPrefabs[2], parentSpawn),
-            PlayerDataManager.SpaceShipType.Destroyer => Instantiate(playerShipsPrefabs[3], parentSpawn),
-            PlayerDataManager.SpaceShipType.Carrier => Instantiate(playerShipsPrefabs[4], parentSpawn),
-            PlayerDataManager.SpaceShipType.Battlecruiser => Instantiate(playerShipsPrefabs[5], parentSpawn),
+            PlayerDataManager.SpaceShipType.Fighter 
+                => Instantiate(playerShipsPrefabs[0], parentSpawn),
+            PlayerDataManager.SpaceShipType.Bomber 
+                => Instantiate(playerShipsPrefabs[1], parentSpawn),
+            PlayerDataManager.SpaceShipType.Corvette 
+                => Instantiate(playerShipsPrefabs[2], parentSpawn),
+            PlayerDataManager.SpaceShipType.Destroyer 
+                => Instantiate(playerShipsPrefabs[3], parentSpawn),
+            PlayerDataManager.SpaceShipType.Carrier 
+                => Instantiate(playerShipsPrefabs[4], parentSpawn),
+            PlayerDataManager.SpaceShipType.Battlecruiser 
+                => Instantiate(playerShipsPrefabs[5], parentSpawn),
             _ => Instantiate(playerShipsPrefabs[0], parentSpawn),
         };
 
         mainCamera.GetComponent<FollowPlayer>().SetPlayer(player);
         minimap.SetPlayer(player);
+
+        score.text = "Credits: " + PlayerDataManager.Instance.Credits;
     }
 }

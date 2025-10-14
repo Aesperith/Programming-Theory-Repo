@@ -40,7 +40,6 @@ public abstract class Spaceship : MonoBehaviour
         }
     }
 
-    protected int price;
     protected int scorePoint;
     public UnityEvent<int> onDestroyed;
 

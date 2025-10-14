@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 public class Corvette : MediumShip  // INHERITANCE
 {
+    private static int price = 250;
+    public static int Price { get { return price; } }
+
     [SerializeField]
     private LaserGun[] laserGuns = new LaserGun[3];
 
@@ -16,7 +19,6 @@ public class Corvette : MediumShip  // INHERITANCE
         speed = 25;
         angleVelocity = new(0, 30, 0);
         tiltAngleMax = 30f;
-        price = 500;
         scorePoint = 25;
         maxArmor = 1;
         armor = 1;

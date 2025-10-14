@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 public class Bomber : SmallShip // INHERITANCE
 {
+    private static int price = 100;
+    public static int Price { get { return price; } }
+
     [SerializeField]
     private MissileLauncher missileLauncher;
 
@@ -16,7 +19,6 @@ public class Bomber : SmallShip // INHERITANCE
         speed = 2f;
         angleVelocity = new(0, 60, 0);
         tiltAngleMax = 45f;
-        price = 125;
         scorePoint = 5;
         mass = 10;
         rb.mass = mass;

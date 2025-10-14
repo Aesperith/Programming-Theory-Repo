@@ -1,11 +1,14 @@
 using UnityEngine;
 
 /// <summary>
-/// Destoyer Spaceship.
+/// Destroyer Spaceship.
 /// Inherits from <see cref="MediumShip"/>.
 /// </summary>
-public class Destoyer : MediumShip  // INHERITANCE
+public class Destroyer : MediumShip  // INHERITANCE
 {
+    private static int price = 500;
+    public static int Price { get { return price; } }
+
     [SerializeField]
     private MissileLauncher[] missileLaunchers = new MissileLauncher[3];
 
@@ -16,7 +19,6 @@ public class Destoyer : MediumShip  // INHERITANCE
         speed = 25;
         angleVelocity = new(0, 30, 0);
         tiltAngleMax = 30f;
-        price = 750;
         scorePoint = 50;
         maxArmor = 3;
         armor = 3;

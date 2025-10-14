@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class Fighter : SmallShip    // INHERITANCE
 {
+    private static int price = 0;
+    public static int Price { get { return price; } }
+
     [SerializeField]
     private LaserGun laserGun;
 
@@ -17,7 +20,6 @@ public class Fighter : SmallShip    // INHERITANCE
         speed = 3;
         angleVelocity = new(0, 60, 0);
         tiltAngleMax = 45f;
-        price = 100;
         scorePoint = 1;
         mass = 10;
         rb.mass = mass;

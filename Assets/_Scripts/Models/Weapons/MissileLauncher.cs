@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Missile Launcher.
@@ -10,23 +11,38 @@ public class MissileLauncher : Weapon   // INHERITANCE
 {
     [SerializeField]
     private int munitionMax = 3;
+    private int munition;
+
+    // ENCAPSULATION
+    public int CurrentAmmo
+    {
+        get { return munition; }
+    }
+
+    public UnityEvent munitionValueChanged;
 
     private Missile missile;
 
     private float elapsedTime;
     private float cooldownReload;
-    private int munition;
+    
     private bool isActive;
     private Coroutine reloading;
 
 
-    private void Start()
+    // POLYMORPHISM
+    protected override void Awake()
     {
         damage = 2;
         cooldownTime = 1f;
         munition = munitionMax;
         cooldownReload = 5f;
 
+        base.Awake();
+    }
+
+    private void Start()
+    {
         isActive = true;
         reloading = StartCoroutine(Reloading());
     }
@@ -58,8 +74,8 @@ public class MissileLauncher : Weapon   // INHERITANCE
                 cooldownUntilNextShot = Time.time + cooldownTime;
 
                 munition--;
+                munitionValueChanged.Invoke();
             }
-            Debug.Log("Munition: " + munition);
         }
     }
 
@@ -78,8 +94,8 @@ public class MissileLauncher : Weapon   // INHERITANCE
                 if (elapsedTime >= cooldownReload)
                 {
                     munition++;
+                    munitionValueChanged.Invoke();
                     elapsedTime = 0f;
-                    Debug.Log("Munition: " + munition);
                 }
             }
 

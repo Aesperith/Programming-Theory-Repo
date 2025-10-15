@@ -41,7 +41,7 @@ public abstract class Weapon : MonoBehaviour
     protected float cooldownUntilNextShot;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         shootAudioSource = GetComponent<AudioSource>();
     }

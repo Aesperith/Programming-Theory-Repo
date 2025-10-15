@@ -34,7 +34,8 @@ public class PlayerDataManager : MonoBehaviour
         Corvette = 1 << 2,
         Destroyer = 1 << 3,
         Carrier = 1 << 4,
-        Battlecruiser = 1 << 5
+        Battlecruiser = 1 << 5,
+        All = Fighter | Bomber | Corvette | Destroyer | Carrier | Battlecruiser
     }
 
     public string PlayerName { get; set; }
@@ -59,7 +60,7 @@ public class PlayerDataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Unlocked |= UnlockedShip.Fighter;
-        //LoadPlayerData();
+        LoadPlayerData();
     }
 
     /// <summary>

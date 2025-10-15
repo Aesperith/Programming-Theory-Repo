@@ -7,6 +7,7 @@ using UnityEngine;
 public class Corvette : MediumShip  // INHERITANCE
 {
     private static int price = 250;
+    // ENCAPSULATION
     public static int Price { get { return price; } }
 
     [SerializeField]

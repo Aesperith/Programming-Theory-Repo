@@ -280,11 +280,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5809b3c398cae854c9661f043ee55823, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::IAController
   targetSelect: 0
   spaceship: {fileID: 6181028165868050168}
-  halfAngleView: 15
-  delay: 0.5
+  halfAngleView: 5
+  delay: 0.1
 --- !u!1 &5013160041714919150
 GameObject:
   m_ObjectHideFlags: 0

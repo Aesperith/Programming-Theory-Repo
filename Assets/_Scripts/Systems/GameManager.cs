@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
         {
             gameOverScreen.SetActive(true);
         }
+
+        PlayerDataManager.Instance.SavePlayerData();
     }
 
     /// <summary>

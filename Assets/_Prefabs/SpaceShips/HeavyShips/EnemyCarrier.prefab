@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.2}
+  m_AnchoredPosition: {x: 0, y: 0.3}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7756356517841798729
@@ -803,11 +803,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5809b3c398cae854c9661f043ee55823, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::IAController
   targetSelect: 0
   spaceship: {fileID: 8766649332379553339}
-  halfAngleView: 15
-  delay: 0.5
+  halfAngleView: 5
+  delay: 0.1
 --- !u!1 &8416038993992092826
 GameObject:
   m_ObjectHideFlags: 0

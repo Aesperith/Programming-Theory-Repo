@@ -68,8 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IAController
   targetSelect: 1
   spaceship: {fileID: 7670598712999064629}
-  halfAngleView: 15
-  delay: 0.5
+  halfAngleView: 5
+  delay: 0.1
 --- !u!1 &5227083610577530723
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fighter
   deathAudioSource: {fileID: 0}
-  hpUI: {fileID: 0}
+  hpUI: {fileID: 5776129014723777156}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []

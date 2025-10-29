@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Camera mainCamera;
+    private CameraController mainCamera;
 
     [SerializeField]
     private TMP_Text score;
@@ -297,7 +297,7 @@ public class GameManager : MonoBehaviour
             _ => Instantiate(playerShipsPrefabs[0], parentSpawn),
         };
 
-        mainCamera.GetComponent<FollowPlayer>().SetPlayer(player);
+        mainCamera.SetPlayer(player);
         minimap.SetPlayer(player);
 
         score.text = "Credits: " + PlayerDataManager.Instance.Credits;

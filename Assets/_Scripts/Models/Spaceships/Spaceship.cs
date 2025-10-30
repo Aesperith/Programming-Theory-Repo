@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,6 +11,9 @@ public abstract class Spaceship : MonoBehaviour
 {
     [SerializeField]
     protected AudioSource deathAudioSource;
+
+    [SerializeField] 
+    protected List<ParticleSystem> reactorsTrail;
 
     [SerializeField]
     protected TMP_Text hpUI;
@@ -105,6 +109,23 @@ public abstract class Spaceship : MonoBehaviour
     {
         rb.AddForce
             (verticalInput * speed * transform.forward, ForceMode.Impulse);
+
+        if (verticalInput > 0)
+        {
+            // Play the particle system for spacehip reactor(s)
+            foreach (var reactor in reactorsTrail)
+            {
+                reactor.Play();
+            }
+        }
+        else
+        {
+            // Stop the particle system for spacehip reactor(s)
+            foreach (var reactor in reactorsTrail)
+            {
+                reactor.Stop();
+            }
+        }
     }
 
     /// <summary>

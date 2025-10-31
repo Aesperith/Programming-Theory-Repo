@@ -352,9 +352,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7302182898901327399}
   - component: {fileID: 3360189452673897647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapons
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 5350670809002946101}
   - {fileID: 4426907955718624822}
   - {fileID: 5684694349738529270}
   - {fileID: 2529218297085813196}
@@ -871,6 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Battlecruiser
   deathAudioSource: {fileID: 0}
+  deathVFX: {fileID: 2739997963113208268}
   reactorsTrail:
   - {fileID: 5993056078378707671}
   - {fileID: 2350882239528725783}
@@ -1200,8 +1202,12 @@ PrefabInstance:
       value: MissileLauncher 3
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1467,8 +1473,12 @@ PrefabInstance:
       value: LaserGun 2
       objectReference: {fileID: 0}
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1623,8 +1633,12 @@ PrefabInstance:
       value: MissileLauncher 1
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1699,6 +1713,121 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
   m_PrefabInstance: {fileID: 2012037146557700031}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2233120486507264603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2959315635796684401}
+    m_Modifications:
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256108070119908983, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_Name
+      value: ExplosionBlueParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+--- !u!198 &2739997963113208268 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4106102952756880279, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 2233120486507264603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5350670809002946101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 2233120486507264603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2273828225798982814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1712,8 +1841,12 @@ PrefabInstance:
       value: MissileLauncher 5
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1801,8 +1934,12 @@ PrefabInstance:
       value: LaserGun 4
       objectReference: {fileID: 0}
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1890,8 +2027,12 @@ PrefabInstance:
       value: LaserGun 3
       objectReference: {fileID: 0}
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1979,8 +2120,12 @@ PrefabInstance:
       value: MissileLauncher 4
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -2229,8 +2374,12 @@ PrefabInstance:
       value: LaserGun 1
       objectReference: {fileID: 0}
     - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434183754052257668, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6381486492545719564, guid: 0476ef852e9009d49906a13b2d86c59d, type: 3}
       propertyPath: m_LocalScale.x
@@ -2506,8 +2655,12 @@ PrefabInstance:
       value: MissileLauncher 6
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -2595,8 +2748,12 @@ PrefabInstance:
       value: MissileLauncher 2
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x

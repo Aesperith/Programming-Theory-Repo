@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomber
   deathAudioSource: {fileID: 0}
+  deathVFX: {fileID: 7062268912762243835}
   reactorsTrail:
   - {fileID: 2733664469184350898}
   hpUI: {fileID: 6093555509853654197}
@@ -754,9 +755,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2161480927493100399}
   - component: {fileID: 243290786480345992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapons
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,6 +959,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1028284481527512322}
   - {fileID: 5452725335158208083}
   m_Father: {fileID: 1431391346262080195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1069,8 +1071,12 @@ PrefabInstance:
       value: MissileLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1210,4 +1216,71 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c21ef88c9ade2e44990f78fb00f70c8, type: 3}
   m_PrefabInstance: {fileID: 3333768055930325482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6555542079978334572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1289240331528435793}
+    m_Modifications:
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256108070119908983, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_Name
+      value: ExplosionBlueParticleSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+--- !u!4 &1028284481527512322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 6555542079978334572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7062268912762243835 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4106102952756880279, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 6555542079978334572}
   m_PrefabAsset: {fileID: 0}

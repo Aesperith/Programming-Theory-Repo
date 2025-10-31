@@ -225,7 +225,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 448
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -273,6 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Missile
   source: 
+  controller: {fileID: 4512536825682876995}
+  explosionVFX: {fileID: 6037142270712488433}
+  explosionDuration: 0
 --- !u!1 &3835441771563601077
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +459,7 @@ MonoBehaviour:
   rb: {fileID: 5841411002796199890}
   halfAngleView: 15
   delay: 0.1
+  timeLimit: 3
 --- !u!1 &9074087379221719263
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +489,74 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 4579940410097669640}
   - {fileID: 7540734240093303453}
   m_Father: {fileID: 7784133595398224589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7724783910064849510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1422681602640072668}
+    m_Modifications:
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256108070119908983, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+      propertyPath: m_Name
+      value: ExplosionParticleSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+--- !u!4 &4579940410097669640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6105972349600109678, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+  m_PrefabInstance: {fileID: 7724783910064849510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6037142270712488433 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4106102952756880279, guid: 4206228f219709f4dad69e9da406b777, type: 3}
+  m_PrefabInstance: {fileID: 7724783910064849510}
+  m_PrefabAsset: {fileID: 0}

@@ -12,6 +12,9 @@ public abstract class Spaceship : MonoBehaviour
     [SerializeField]
     protected AudioSource deathAudioSource;
 
+    [SerializeField]
+    protected ParticleSystem deathVFX;
+
     [SerializeField] 
     protected List<ParticleSystem> reactorsTrail;
 
@@ -32,6 +35,8 @@ public abstract class Spaceship : MonoBehaviour
             }
         }
     }
+
+    protected bool isDead;
 
     protected float speed;
 
@@ -210,15 +215,19 @@ public abstract class Spaceship : MonoBehaviour
     /// </summary>
     public virtual void CheckDeath()
     {
-        if (healthPoint <= 0)
+        if (healthPoint <= 0 && !isDead)
         {
+            isDead = true;
+
             AudioSource.PlayClipAtPoint
                 (deathAudioSource.clip, transform.position );
+
+            deathVFX.Play();
 
             if (gameObject.CompareTag("Enemy"))
             {
                 onDestroyed.Invoke(scorePoint);
-                Destroy(gameObject);
+                Destroy(gameObject, deathVFX.main.duration);
             }
             else
             {

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7506078596399938911}
   - component: {fileID: 1420668428904583454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapons
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,6 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8800369225107029990}
   - {fileID: 7704153477047172292}
   - {fileID: 149792099694415044}
   - {fileID: 2200045314193856857}
@@ -1022,6 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destoyer
   deathAudioSource: {fileID: 0}
+  deathVFX: {fileID: 1614041624194353183}
   reactorsTrail:
   - {fileID: 337404179507773477}
   - {fileID: 7804806918459207717}
@@ -1147,8 +1149,12 @@ PrefabInstance:
       value: MissileLauncher 3
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1396,6 +1402,121 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4930282208533311302, guid: 815986c87ab420e43a02deb1786fdd9d, type: 3}
   m_PrefabInstance: {fileID: 3351037976002089858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3359109931030358920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6799765153198839236}
+    m_Modifications:
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475911168183397782, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256108070119908983, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_Name
+      value: ExplosionBlueParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414954726752879547, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+--- !u!198 &1614041624194353183 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4106102952756880279, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 3359109931030358920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8800369225107029990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6105972349600109678, guid: 37ac4b0ffbed0ed45b54c3e0e36dadaa, type: 3}
+  m_PrefabInstance: {fileID: 3359109931030358920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3825247586691154711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,8 +1763,12 @@ PrefabInstance:
       value: MissileLauncher 1
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x
@@ -1731,8 +1856,12 @@ PrefabInstance:
       value: MissileLauncher 2
       objectReference: {fileID: 0}
     - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520826029592261236, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7391822329473549182, guid: f2bbeb901a3bc6d40b9f2e9aaade8951, type: 3}
       propertyPath: m_LocalScale.x

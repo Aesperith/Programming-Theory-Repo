@@ -60,6 +60,11 @@ public class PlayerDataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Unlocked |= UnlockedShip.Fighter;
+
+#if UNITY_EDITOR
+        Unlocked |= UnlockedShip.All;   // For debug
+#endif
+
         LoadPlayerData();
     }
 

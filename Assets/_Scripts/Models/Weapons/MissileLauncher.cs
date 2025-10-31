@@ -63,6 +63,7 @@ public class MissileLauncher : Weapon   // INHERITANCE
                 {
                     missile.Damage = damage;
                     missile.source = this.tag;
+                    missile.ActivateController();
                 }
 
                 pooledProjectile.SetActive(true); // activate it

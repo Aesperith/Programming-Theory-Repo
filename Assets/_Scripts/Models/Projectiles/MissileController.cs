@@ -19,12 +19,14 @@ public class MissileController : MonoBehaviour
     [SerializeField]
     private float delay = 0.1f;
 
+    [SerializeField]
+    private float timeLimit = 3f;
+
     private Vector3 angleVelocity;
 
     private SphereCollider detection;
     private float radiusDetection;
- 
-    private float timeLimit;
+   
     private float elapsedTime;
 
     private float inputX;
@@ -35,6 +37,7 @@ public class MissileController : MonoBehaviour
     private GameObject target;
 
     private bool isActive;
+    private bool isSelfDestructing;
 
     private Coroutine followTarget;
 
@@ -54,16 +57,17 @@ public class MissileController : MonoBehaviour
 
     private void OnEnable()
     {
-        sourceTag = missile.source;
-        targetTag = sourceTag == "Enemy" ? "Player" : "Enemy";
+        if (isActive)
+        {
+            sourceTag = missile.source;
+            targetTag = sourceTag == "Enemy" ? "Player" : "Enemy";
 
-        inputX = 0f;
+            inputX = 0f;
 
-        elapsedTime = 0;
-        timeLimit = 5f;
-        isActive = true;
+            elapsedTime = 0;
 
-        StartCoroutine(TimerLimit());
+            StartCoroutine(TimerLimit());
+        }
     }
 
     private void FixedUpdate()
@@ -74,7 +78,11 @@ public class MissileController : MonoBehaviour
         }
         else
         {
-            SelfDestruct(); // ABSTRACTION
+            if (!isSelfDestructing)
+            {
+                StartCoroutine(SelfDestruct()); // ABSTRACTION
+                isSelfDestructing = true;
+            }
         }
     }
 
@@ -186,8 +194,19 @@ public class MissileController : MonoBehaviour
     /// <summary>
     /// Destroy the missile.
     /// </summary>
-    private void SelfDestruct()
+    private IEnumerator SelfDestruct()
     {
+        missile.PlayExplosion();
+        yield return new WaitForSeconds(missile.explosionDuration);
         missile.gameObject.SetActive(false);
+        isSelfDestructing = false;
+    }
+
+    /// <summary>
+    /// Activate the missile controller.
+    /// </summary>
+    public void Activate()
+    {
+        isActive = true;
     }
 }
